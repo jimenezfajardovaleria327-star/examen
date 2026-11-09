@@ -49,6 +49,25 @@ curl -X PUT http://localhost:5001/resultados/ELE-0001 \
 
 Usa una clave existente. El valor de ejemplo modifica el resultado almacenado; el job lo restaura al volver a ejecutarse.
 
+## Resultado de la pregunta de negocio
+
+Para la matrícula **125055397**, la pregunta asignada es obtener los 10 productos con mayor ingreso total durante 2025. El ingreso por venta se calcula como `cantidad * precio_unitario` y luego se suman los ingresos de cada producto. Resultado calculado con el CSV generado para esta matrícula:
+
+| Posición | Producto | Ingreso total |
+| ---: | --- | ---: |
+| 1 | ROP-0026 | $138,511,951.99 |
+| 2 | ROP-0015 | $138,303,681.24 |
+| 3 | ROP-0017 | $138,189,351.41 |
+| 4 | ROP-0016 | $137,137,638.76 |
+| 5 | ROP-0004 | $136,548,244.72 |
+| 6 | ROP-0028 | $136,476,358.72 |
+| 7 | ROP-0003 | $136,428,320.26 |
+| 8 | ROP-0019 | $136,418,382.40 |
+| 9 | ROP-0013 | $136,335,400.69 |
+| 10 | ROP-0024 | $136,050,743.70 |
+
+Los códigos `ROP` corresponden a productos de la categoría Ropa.
+
 ## Comparativa de rendimiento
 
 El contenedor registra `Tiempo secuencial: ...s` y `Tiempo Hadoop Streaming: ...s` al iniciar. También guarda los resultados de ambos métodos en `/data/output/secuencial.tsv` y `/data/output/resultado/part-00000`; el script comprueba que coincidan exactamente antes de cargar la base de datos. Para conservar una evidencia de la sesión:
